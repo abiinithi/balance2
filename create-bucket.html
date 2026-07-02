@@ -18,11 +18,14 @@
 
       <div class="overlay-body">
         <div class="bucket-field-group">
-          <label for="select-create-bucket-type" class="field-label">Type</label>
-          <select class="text-input" id="select-create-bucket-type">
-            <option value="budget">Monthly Budget</option>
-            <option value="saving">Savings Goal</option>
-          </select>
+            <label class="field-label">Type</label>
+            
+            <input type="hidden" id="select-create-bucket-type" value="budget">
+            
+            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                <button type="button" class="action-btn submit" data-value="budget" style="flex: 1;">Monthly Budget</button>
+                <button type="button" class="action-btn" data-value="saving" style="flex: 1;">Savings Goal</button>
+            </div>
         </div>
 
         <div class="bucket-field-group">

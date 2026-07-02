@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // ROUTE 1: DASHBOARD VIEW (index.html)
   // =========================================================================
-  if (currentPath === '/' || currentPath.includes('index.html')) {
+  if (currentPath === '/' || currentPath.includes('index')) {
     const balanceAmountEl = document.getElementById('balance-amount');
     const widgetBucketSelect = document.getElementById('widget-bucket-select');
     const bucketsListEl = document.getElementById('buckets-list');
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // ROUTE 2: TRANSACTION WRAPPER VIEW (transaction.html)
   // =========================================================================
-  if (currentPath.includes('transaction.html')) {
+  if (currentPath.includes('transaction')) {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get('type') || 'incoming'; // incoming or outgoing
 
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // ROUTE 3: TRANSACTION LOG / RECORDS (history.html)
   // =========================================================================
-  if (currentPath.includes('history.html')) {
+  if (currentPath.includes('history')) {
     const historyListEl = document.getElementById('history-list');
 
     function renderTransactions() {
@@ -291,33 +291,51 @@ document.addEventListener('DOMContentLoaded', () => {
   // ROUTE 4: NEW SAVINGS CONTAINER INTERFACE (create-bucket.html)
   // =========================================================================
   if (currentPath.includes('create-bucket')) {
-    const bType = document.getElementById('select-create-bucket-type');
-    const bName = document.getElementById('input-create-bucket-name');
-    const bTarget = document.getElementById('input-create-bucket-target');
-    const btnSubmit = document.getElementById('btn-submit-create-bucket');
+    const bType = document.getElementById('select-create-bucket-type'); //
+    const bName = document.getElementById('input-create-bucket-name'); //
+    const bTarget = document.getElementById('input-create-bucket-target'); //
+    const btnSubmit = document.getElementById('btn-submit-create-bucket'); //
 
-    setTimeout(() => bName.focus(), 150);
-
-    btnSubmit.addEventListener('click', () => {
-      const name = bName.value.trim();
-      if (!name) return;
-
-      buckets.push({
-        id: generateId(),
-        name,
-        type: bType.value,
-        targetAmount: parseFloat(bTarget.value) || 0,
-        currentAmount: 0
+    // --- Button Toggle Styling Logic (Using Existing Classes) ---
+    // Safely targets only the buttons with data-value attributes
+    const toggleButtons = document.querySelectorAll('button[data-value]');
+    
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 1. Remove the solid 'submit' styling from all choices
+        toggleButtons.forEach(b => b.classList.remove('submit'));
+        
+        // 2. Add the solid 'submit' styling to the selected choice
+        btn.classList.add('submit');
+        
+        // 3. Update the hidden input tracker for the push state array
+        bType.value = btn.getAttribute('data-value');
       });
-      saveState();
-      window.location.href = '/index.html';
+    });
+    // -------------------------------------------------------------
+
+    setTimeout(() => bName.focus(), 150); //
+
+    btnSubmit.addEventListener('click', () => { //
+      const name = bName.value.trim(); //
+      if (!name) return; //
+
+      buckets.push({ //
+        id: generateId(), //
+        name, //
+        type: bType.value, //
+        targetAmount: parseFloat(bTarget.value) || 0, //
+        currentAmount: 0 //
+      });
+      saveState(); //
+      window.location.href = '/index.html'; //
     });
   }
 
   // =========================================================================
   // ROUTE 5: WORKSPACE INTERFACE SPECIFICS (manage-bucket.html)
   // =========================================================================
-  if (currentPath.includes('manage-bucket.html')) {
+  if (currentPath.includes('manage-bucket')) {
     const urlParams = new URLSearchParams(window.location.search);
     const targetId = urlParams.get('id');
     const bucket = buckets.find(b => b.id === targetId);
@@ -379,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // ROUTE 6: PERIOD INTERCEPTOR ROUTER SCREEN (month-end.html)
   // =========================================================================
-  if (currentPath.includes('month-end.html')) {
+  if (currentPath.includes('month-end')) {
     const resContainer = document.getElementById('resolution-buckets-container');
     const btnFinish = document.getElementById('btn-complete-resolution');
     const leftoverBuckets = buckets.filter(b => b.type === 'budget' && (b.targetAmount - b.currentAmount) > 0);

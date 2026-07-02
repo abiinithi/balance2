@@ -770,3 +770,32 @@ input, select, textarea {
 .app-layout {
   justify-content: flex-start;
 }
+
+.type-button-toggle-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Nothing OS inspired active state (inverted stark contrast) */
+.toggle-btn.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: bold;
+}
