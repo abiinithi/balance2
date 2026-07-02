@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // ROUTE 4: NEW SAVINGS CONTAINER INTERFACE (create-bucket.html)
   // =========================================================================
-  if (currentPath.includes('create-bucket.html')) {
+  if (currentPath.includes('create-bucket')) {
     const bType = document.getElementById('select-create-bucket-type');
     const bName = document.getElementById('input-create-bucket-name');
     const bTarget = document.getElementById('input-create-bucket-target');
