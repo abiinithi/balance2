@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>balance — transaction</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <section class="overlay static-page active" id="transaction-page-wrapper">
+      <div class="overlay-header">
+        <span class="overlay-title" id="transaction-type-title">TRANSACTION AMOUNT</span>
+        <a href="/index.html" class="overlay-close" style="text-decoration: none;">✕</a>
+      </div>
+
+      <div class="overlay-body">
+        <div class="amount-input-wrapper">
+          <span class="amount-prefix" id="transaction-prefix">+</span>
+          <input
+            type="number"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            class="amount-input"
+            id="input-transaction-amount"
+            placeholder="0"
+            required
+          >
+        </div>
+
+        <div class="bucket-field-group">
+          <label for="select-transaction-bucket" class="field-label">Select Bucket</label>
+          <select class="text-input" id="select-transaction-bucket">
+            </select>
+        </div>
+
+        <div class="bucket-field-group">
+          <label for="input-transaction-note" class="field-label">Note (Optional)</label>
+          <input type="text" class="text-input" id="input-transaction-note" placeholder="What was this for?" maxlength="50">
+        </div>
+      </div>
+
+      <div class="overlay-footer">
+        <button class="action-btn submit" id="btn-confirm-transaction" type="button">CONFIRM</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

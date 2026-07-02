@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="description" content="A minimalist, tactile Nothing OS styled 2x2 widget for tracking your remaining account balance manually.">
+  <meta name="theme-color" content="#000000">
+  <title>balance — dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <main class="widget-container" id="widget-card">
+      <a href="/transaction.html?type=incoming" class="swipe-hint top" style="text-decoration: none;">↓ ADD</a>
+      <a href="/transaction.html?type=outgoing" class="swipe-hint bottom" style="text-decoration: none;">↑ SUBTRACT</a>
+
+      <div class="widget-content">
+        <header>
+          <select class="widget-header-select" id="widget-bucket-select" aria-label="Select bucket to display">
+            <option value="total">TOTAL BALANCE</option>
+          </select>
+        </header>
+
+        <div class="balance-display-container">
+          <h1 class="balance-value" id="balance-amount">₹0</h1>
+        </div>
+
+        <footer class="widget-footer">
+          <div class="red-dot" aria-hidden="true"></div>
+        </footer>
+      </div>
+    </main>
+
+    <section class="savings-section" aria-labelledby="savings-heading">
+      <div class="savings-header">
+        <h2 class="savings-heading" id="savings-heading">savings buckets</h2>
+        <a href="/create-bucket.html" class="add-bucket-btn" style="text-decoration: none;">+ ADD BUCKET</a>
+      </div>
+
+      <div class="buckets-list" id="buckets-list">
+        </div>
+    </section>
+
+    <nav class="bottom-nav">
+      <a href="/index.html" class="nav-btn active" style="text-decoration: none;">DASHBOARD</a>
+      <a href="/history.html" class="nav-btn" style="text-decoration: none;">HISTORY</a>
+    </nav>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

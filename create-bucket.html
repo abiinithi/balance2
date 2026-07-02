@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>balance — create bucket</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <section class="overlay static-page active incoming">
+      <div class="overlay-header">
+        <span class="overlay-title">NEW BUCKET</span>
+        <a href="/index.html" class="overlay-close" style="text-decoration: none;">✕</a>
+      </div>
+
+      <div class="overlay-body">
+        <div class="bucket-field-group">
+          <label for="select-create-bucket-type" class="field-label">Type</label>
+          <select class="text-input" id="select-create-bucket-type">
+            <option value="budget">Monthly Budget</option>
+            <option value="saving">Savings Goal</option>
+          </select>
+        </div>
+
+        <div class="bucket-field-group">
+          <label for="input-create-bucket-name" class="field-label">Name</label>
+          <input type="text" class="text-input" id="input-create-bucket-name" placeholder="e.g. Groceries" maxlength="20">
+        </div>
+
+        <div class="bucket-field-group">
+          <label for="input-create-bucket-target" class="field-label">Target Amount (₹)</label>
+          <input type="number" pattern="[0-9]*" inputmode="numeric" class="text-input" id="input-create-bucket-target" placeholder="0">
+        </div>
+      </div>
+
+      <div class="overlay-footer">
+        <button class="action-btn submit" id="btn-submit-create-bucket" type="button">CREATE</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

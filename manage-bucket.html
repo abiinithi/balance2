@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>balance — manage bucket</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <section class="overlay static-page active outgoing">
+      <div class="overlay-header">
+        <span class="overlay-title" id="bucket-manager-title">MANAGE BUCKET</span>
+        <a href="/index.html" class="overlay-close" style="text-decoration: none;">✕</a>
+      </div>
+
+      <div class="overlay-body">
+        <div class="bucket-field-group">
+          <label for="input-bucket-name" class="field-label">Rename Bucket</label>
+          <input type="text" class="text-input" id="input-bucket-name" placeholder="Enter bucket name" maxlength="20">
+        </div>
+
+        <div class="bucket-field-group">
+          <label for="input-bucket-target" class="field-label">Target Amount</label>
+          <input type="number" pattern="[0-9]*" inputmode="numeric" class="text-input" id="input-bucket-target" placeholder="0">
+        </div>
+
+        <div class="bucket-field-group">
+          <label for="input-bucket-amount" class="field-label">Transaction Amount (₹)</label>
+          <div class="amount-input-wrapper small">
+            <input
+              type="number"
+              pattern="[0-9]*"
+              inputmode="numeric"
+              class="amount-input"
+              id="input-bucket-amount"
+              placeholder="0"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay-footer split">
+        <button class="action-btn danger" id="btn-delete-bucket" type="button">DELETE</button>
+        <div class="action-group-right">
+          <button class="action-btn" id="btn-withdraw-bucket" type="button">WITHDRAW</button>
+          <button class="action-btn submit" id="btn-deposit-bucket" type="button">DEPOSIT</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

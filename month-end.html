@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>balance — system resolution</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <section class="overlay static-page active incoming" style="z-index: 200;">
+      <div class="overlay-header">
+        <span class="overlay-title">MONTH END RESOLUTION</span>
+      </div>
+
+      <div class="overlay-body" style="justify-content: flex-start; overflow-y: auto;">
+        <p style="font-family: var(--font-sans); font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin: 0 0 16px 0;">
+          You have leftover funds in your budget buckets from last month. Resolve them before starting the new month.
+        </p>
+        
+        <div id="resolution-buckets-container" style="display: flex; flex-direction: column; gap: 16px;">
+          </div>
+      </div>
+
+      <div class="overlay-footer">
+        <button class="action-btn submit" id="btn-complete-resolution" type="button" disabled>FINISH & START MONTH</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
