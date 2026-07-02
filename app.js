@@ -148,6 +148,36 @@ document.addEventListener('DOMContentLoaded', () => {
     populateDashboardSelect();
     updateMainUI();
     renderBuckets();
+
+    // --- Swipe Gesture Logic ---
+  const widgetCard = document.getElementById('widget-card');
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const swipeThreshold = 60; // Adjust this number for sensitivity (in pixels)
+
+  if (widgetCard) {
+    widgetCard.addEventListener('touchstart', (e) => {
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    widgetCard.addEventListener('touchend', (e) => {
+      touchEndY = e.changedTouches[0].screenY;
+      handleWidgetSwipe();
+    }, { passive: true });
+  }
+
+  function handleWidgetSwipe() {
+    const distance = touchEndY - touchStartY;
+
+    // Swipe Down (reveals top hint) -> Go to incoming transaction
+    if (distance > swipeThreshold) {
+      window.location.href = "/transaction.html?type=incoming";
+    } 
+    // Swipe Up (reveals bottom hint) -> Go to outgoing transaction
+    else if (distance < -swipeThreshold) {
+      window.location.href = "/transaction.html?type=outgoing";
+    }
+  }
   }
 
   // =========================================================================
