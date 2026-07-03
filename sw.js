@@ -1,14 +1,23 @@
-const CACHE_NAME = 'balance-cache-v3'; // Bumped version to force a cache refresh
+const CACHE_NAME = 'balance-cache-v4'; // Bumped: switched to split css/js files
 const ASSETS = [
   '/',
   '/index.html',
-  '/transaction.html',   // Added
-  '/history.html',       // Added
-  '/create-bucket.html',  // Added
-  '/manage-bucket.html',  // Added
-  '/month-end.html',      // Added
-  '/style.css',
-  '/app.js',
+  '/transaction.html',
+  '/history.html',
+  '/create-bucket.html',
+  '/manage-bucket.html',
+  '/month-end.html',
+  '/css/base.css',
+  '/css/dashboard.css',
+  '/css/history.css',
+  '/css/month-end.css',
+  '/js/core.js',
+  '/js/dashboard.js',
+  '/js/transaction.js',
+  '/js/history.js',
+  '/js/create-bucket.js',
+  '/js/manage-bucket.js',
+  '/js/month-end.js',
   '/manifest.json',
   '/icon.svg',
   '/fonts/Ndot57-Regular.otf',

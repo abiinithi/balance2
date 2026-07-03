@@ -1,0 +1,24 @@
+/* Balance App CSS Stylesheet — MONTH-END
+   month-end.html only: the leftover-budget resolution boxes. */
+
+.resolution-box {
+  background: #09090A;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.resolution-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.resolution-box-balance {
+  font-family: var(--font-matrix);
+  font-size: 18px;
+  color: var(--accent-red);
+}
